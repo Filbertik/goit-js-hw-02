@@ -1,8 +1,13 @@
-function getShippingMessage(country, price, deliveryFee) {
-  const totalPrice = price + deliveryFee;
-  return `Shipping to ${country} will cost ${totalPrice} credits`;
+function formatMessage(message, maxLength) {
+  if (message.length > maxLength) {
+    return message.slice(0, maxLength) + "...";
+  } else {
+    return message;
+  }
 }
+
 // Виклик функції
-console.log(getShippingMessage("Australia", 120, 50));
-console.log(getShippingMessage("Germany", 80, 20));
-console.log(getShippingMessage("Sweden", 100, 20));
+console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15));
+console.log(formatMessage("Hello, world!", 20));
+console.log(formatMessage("This is a test message", 10));
+console.log(formatMessage("Short text", 20));
